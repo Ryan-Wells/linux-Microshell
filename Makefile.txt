@@ -1,0 +1,18 @@
+﻿#A Makefile for my microshell
+
+CC = gcc
+CFLAGS = -g -Wall
+FILES = ush.o expand.o builtin.o
+
+ush: ush.o expand.o builtin.o
+	$(CC) $(CFLAGS) -o ush $(FILES)
+
+clean:
+	rm -r ush.o
+	rm -r expand.o
+	rm -r builtin.o
+	rm -r ush
+
+ush.c, expand.c, builtin.c: defn.h
+
+
